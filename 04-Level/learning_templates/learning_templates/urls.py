@@ -1,4 +1,4 @@
-"""leraning_templates URL Configuration
+"""learning_templates URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from basic_app import views
 
 urlpatterns = [
+    path('',views.index,name="index"),
+    path('basic_app/',include('basic_app.urls')),
+    #path('basic_app/other',views.other,name="other"),
+    #path('basic_app/relative',views.relative_urls,name="relative"),
     path('admin/', admin.site.urls),
 ]
